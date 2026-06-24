@@ -1,0 +1,10 @@
+ĐÃ ĐIỀN PUBLISHABLE KEY SUPABASE.
+
+1) Chạy file supabase_setup.sql trong Supabase SQL Editor.
+2) Giải nén file ZIP này.
+3) Trên GitHub tạo repository công khai tên: phunguyendaunhot-byte.github.io
+4) Tải TOÀN BỘ file và thư mục bên trong lên thư mục gốc repository (index.html phải nằm ở ngoài cùng).
+5) Vào Settings → Pages → Deploy from a branch → main → /(root) → Save.
+6) Website: https://phunguyendaunhot-byte.github.io/
+
+Lưu ý: chỉ dùng publishable/anon key, không đưa service_role key lên GitHub.

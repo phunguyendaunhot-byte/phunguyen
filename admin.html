@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#d97617"><title>Quản trị sản phẩm | Phú Nguyên</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header"><div class="container header-inner"><a href="index.html"><img class="brand-logo" src="assets/logo.png" alt="Phú Nguyên"></a><div class="brand-text"><strong>QUẢN TRỊ SẢN PHẨM</strong><span>Thêm, sửa, xóa và cập nhật giá từ Supabase</span></div><div class="header-actions"><a class="btn" href="index.html">Trang tra cứu</a><a class="btn" href="labels.html">In tem</a><button class="btn btn-dark" id="logoutBtn" type="button">Đăng xuất</button></div></div></header>
+
+  <section id="loginView" class="login-card" hidden>
+    <div class="eyebrow">Khu vực nội bộ</div><h1>Đăng nhập quản trị</h1><p style="color:#6c727a">Dùng tài khoản đã tạo trong Supabase Authentication.</p>
+    <form id="loginForm"><div class="field"><label>Email</label><input class="input" type="email" id="email" required></div><div class="field"><label>Mật khẩu</label><input class="input" type="password" id="password" required></div><div id="loginMessage" class="message error" hidden></div><button class="btn btn-primary" style="width:100%" type="submit">Đăng nhập</button></form>
+  </section>
+
+  <main id="adminView" class="admin-shell" hidden>
+    <div class="container">
+      <div id="demoBanner" class="notice show" hidden><strong>Chế độ dùng thử:</strong> thay đổi chỉ lưu trên trình duyệt này. Hãy điền Supabase anon key trong <code>js/config.js</code> để dùng dữ liệu thật. <button id="resetDemo" class="btn" style="padding:6px 9px;margin-left:8px">Khôi phục mẫu</button></div>
+      <div id="adminMessage" hidden></div>
+      <div class="admin-grid">
+        <section class="panel">
+          <h2 id="formTitle">Thêm sản phẩm</h2>
+          <form id="productForm">
+            <div class="form-grid">
+              <div class="field"><label>SKU</label><input class="input" id="sku" placeholder="R5000-08"></div>
+              <div class="field"><label>Mã barcode *</label><div style="display:flex;gap:6px"><input class="input" id="barcode" required><button class="btn" id="generateCode" type="button" style="padding:8px">Tạo</button></div></div>
+              <div class="field full"><label>Tên sản phẩm *</label><input class="input" id="name" required></div>
+              <div class="field"><label>Quy cách *</label><input class="input" id="size" placeholder="0.8L" required></div>
+              <div class="field"><label>Tiền tệ</label><select class="select" id="currency"><option>VND</option></select></div>
+              <div class="field"><label>Giá thị trường</label><input class="input" id="market_price" type="number" min="0"></div>
+              <div class="field"><label>Giá bán / giá nét</label><input class="input" id="net_price" type="number" min="0"></div>
+              <div class="field full"><label>Tên công ty</label><input class="input" id="company_name"></div>
+              <div class="field full"><label>Đường dẫn hình ảnh</label><input class="input" id="image_url" placeholder="assets/rexxo_5000.jpg hoặc URL Supabase"></div>
+              <div class="field full"><label>Tải ảnh lên Supabase Storage</label><input class="input" id="image_file" type="file" accept="image/*"></div>
+              <div class="field full"><img id="imagePreview" src="assets/no-image.svg" alt="Xem trước" style="width:120px;height:120px;object-fit:contain;border:1px solid #ddd;border-radius:12px"></div>
+              <div class="field full"><label>Mô tả</label><textarea class="textarea" id="description" rows="4"></textarea></div>
+              <div class="field full"><label style="display:flex;gap:8px;align-items:center"><input id="active" type="checkbox" checked> Hiển thị sản phẩm trên trang tra cứu</label></div>
+            </div>
+            <div class="form-actions"><button class="btn btn-primary" id="saveBtn" type="submit">Lưu sản phẩm</button><button class="btn" id="resetBtn" type="button">Nhập mới</button></div>
+          </form>
+        </section>
+
+        <section class="panel">
+          <div class="admin-toolbar"><div><h2 style="margin:0">Danh sách sản phẩm</h2><span id="adminCount" style="color:#6c727a;font-size:13px"></span></div><input class="input" id="adminSearch" style="max-width:260px" placeholder="Tìm tên hoặc mã"></div>
+          <div class="table-wrap"><table class="data-table"><thead><tr><th>Hình</th><th>Sản phẩm</th><th>Quy cách</th><th>Giá thị trường</th><th>Giá bán</th><th>Trạng thái</th><th>Thao tác</th></tr></thead><tbody id="productTableBody"><tr><td colspan="7">Đang tải…</td></tr></tbody></table></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script><script src="js/demo-data.js"></script><script src="js/shared.js"></script><script src="js/admin.js"></script>
+</body>
+</html>

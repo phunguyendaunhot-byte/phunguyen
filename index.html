@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#d97617">
+  <title>Tra cứu sản phẩm | Phú Nguyên</title>
+  <meta name="description" content="Tra cứu sản phẩm dầu nhớt Phú Nguyên bằng mã barcode hoặc camera điện thoại.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="topbar"><div class="container"><span>Website: www.fpoil.com.vn</span><span>Liên hệ: Mr Hưng 0901 239 566</span></div></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html"><img class="brand-logo" src="assets/logo.png" alt="Phú Nguyên"></a>
+      <div class="brand-text"><strong>CÔNG TY TNHH XNK PHÚ NGUYÊN</strong><span>Tra cứu sản phẩm chính xác bằng barcode và QR</span></div>
+      <nav class="header-actions">
+        <button class="btn btn-primary" type="button" data-scan>📷 Quét mã</button>
+        <a class="btn" href="labels.html">🏷️ In tem</a>
+        <a class="btn btn-dark" href="admin.html">Quản trị</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Kiểm tra sản phẩm nhanh chóng</div>
+          <h1>Quét mã để xem đúng sản phẩm, đúng giá.</h1>
+          <p>Dùng camera điện thoại quét barcode hoặc QR trên tem. Hệ thống sẽ hiển thị hình sản phẩm, tên công ty, quy cách, giá thị trường và giá bán.</p>
+          <form class="search-box" id="heroSearchForm">
+            <input id="heroSearch" autocomplete="off" placeholder="Nhập mã, ví dụ: PN-R5000-08">
+            <button class="btn btn-primary" type="submit">Tra cứu</button>
+            <button class="btn" type="button" data-scan>Quét camera</button>
+          </form>
+          <div class="notice" id="configNotice"><strong>Đang ở chế độ dữ liệu mẫu.</strong> Hãy điền Supabase anon key trong <code>js/config.js</code> để kết nối dữ liệu thật.</div>
+        </div>
+        <aside class="hero-card">
+          <img src="assets/logo.png" alt="Logo Phú Nguyên">
+          <h2>Tem thông minh cho từng quy cách</h2>
+          <p>Mỗi chai/lon có mã riêng. Khi thay đổi giá trong Supabase, trang tra cứu cập nhật ngay mà không cần in lại QR.</p>
+          <div class="stat-row"><div class="stat"><b>11</b><span>Mẫu sản phẩm</span></div><div class="stat"><b>24/7</b><span>Tra cứu online</span></div><div class="stat"><b>HTTPS</b><span>Camera an toàn</span></div></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="catalog">
+      <div class="container">
+        <div class="section-head">
+          <div><h2>Danh mục sản phẩm</h2><p id="productCount">Đang tải dữ liệu…</p></div>
+          <div class="filters">
+            <input class="input" id="catalogSearch" style="width:270px" placeholder="Tìm theo tên hoặc mã">
+            <select class="select" id="sizeFilter" style="width:180px"><option value="">Tất cả quy cách</option></select>
+          </div>
+        </div>
+        <div class="product-grid" id="productGrid"><div class="empty">Đang tải sản phẩm…</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container footer-grid"><div><h3>CÔNG TY TNHH XNK PHÚ NGUYÊN</h3><p>MST: 0319 4269 70<br>04 Đường Số 7, KDC Khang An, Phường Long Trường, TP Hồ Chí Minh.</p></div><div><h3>Thông tin tra cứu</h3><p>Dữ liệu giá được lấy trực tiếp từ Supabase. Vui lòng liên hệ công ty để xác nhận chương trình bán hàng tại thời điểm mua.</p><small>© 2026 Phú Nguyên.</small></div></div></footer>
+
+  <div class="modal" id="scanModal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="closeScan" aria-label="Đóng">×</button>
+      <h2>Quét barcode hoặc QR</h2>
+      <p style="color:#6c727a">Đưa mã vào giữa khung hình. Trình duyệt có thể hỏi quyền sử dụng camera.</p>
+      <div id="reader"></div>
+      <p id="scanMessage" style="color:#b32929"></p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/demo-data.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

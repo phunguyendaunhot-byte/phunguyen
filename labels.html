@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>In tem barcode | Phú Nguyên</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+  <header class="site-header"><div class="container header-inner"><a href="index.html"><img class="brand-logo" src="assets/logo.png" alt="Phú Nguyên"></a><div class="brand-text"><strong>IN TEM BARCODE & QR</strong><span>Mỗi tem mở đúng trang thông tin sản phẩm</span></div><div class="header-actions"><a class="btn" href="index.html">Trang tra cứu</a><a class="btn btn-dark" href="admin.html">Quản trị</a></div></div></header>
+  <div class="label-toolbar"><div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div><strong>Danh sách tem</strong> · <span id="labelCount">Đang tải…</span></div><button class="btn btn-primary" onclick="window.print()">🖨️ In tem</button></div></div>
+  <main class="container"><div class="label-grid" id="labelGrid"><div class="empty">Đang tạo tem…</div></div></main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="js/config.js"></script><script src="js/demo-data.js"></script><script src="js/shared.js"></script><script src="js/labels.js"></script>
+</body>
+</html>
