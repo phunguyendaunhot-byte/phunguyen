@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         </div>
       </article>`;
     window.PN.renderBarcode(document.getElementById('barcodeSvg'), item.barcode, { height: 55, width: 2 });
-    window.PN.renderQr(document.getElementById('qrBox'), window.PN.productUrl(item.barcode), 96);
+    window.PN.renderQr(document.getElementById('qrBox'), window.PN.productUrl(item.barcode), 120);
   } catch (error) {
     root.innerHTML = `<div class="empty">Không tải được dữ liệu: ${window.PN.safe(error.message)}</div>`;
   }
